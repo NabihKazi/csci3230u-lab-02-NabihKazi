@@ -31,6 +31,37 @@ body {
    margin-left:auto; add flex-wrap so the nav drops below the brand on a
    narrow screen (that's the whole responsive story - no media query). */
 
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: var(--header-bg);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.brand img {
+  width: 36px;
+  height: 36px;
+}
+.site-header nav {
+  margin-left: auto;
+}
+.site-header nav a {
+  color: #ddd;
+  text-decoration: none;
+  margin-left: 24px;
+}
+.site-header nav a:hover {
+  color: white;
+}
 
 /* ---- the board  (requirement 5) ------------------------------------ */
 /* TODO: border-collapse the #board; size each cell and centre the digit;
@@ -38,12 +69,80 @@ body {
    (td:nth-child(3n) and tr:nth-child(3n) td); a :hover colour.
    Also add .user-input and .error rules now - Lab 06 switches them on. */
 
+#board {
+  border-collapse: collapse;
+  margin: 0 auto;
+  border: 3px solid var(--block-line);
+}
+#board td {
+  width: min(54px, 9.5vw);
+  height: min(54px, 9.5vw);
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--digit);
+  border: 1px solid var(--board-line);
+}
+#board td:nth-child(3n) {
+  border-right: 3px solid var(--block-line);
+}
+#board tr:nth-child(3n) td {
+  border-bottom: 3px solid var(--block-line);
+}
+#board td:hover {
+  background-color: var(--color-hover);
+}
+#board td.user-input {
+  background-color: var(--color-user-input);
+}
+#board td.error {
+  background-color: var(--color-error);
+}
 
 /* ---- the numbers palette  (requirement 6) -------------------------- */
 /* TODO: size + border the .palette cells; a :hover colour; and a
    .active style for the selected digit (used in Lab 06). */
 
+.palette {
+  border-collapse: collapse;
+  margin: 16px auto;
+}
+.palette td {
+  width: min(46px, 8.5vw);
+  height: min(46px, 8.5vw);
+  text-align: center;
+  color: var(--digit);
+  border: 1px solid var(--block-line);
+}
+.palette td:hover {
+  background-color: var(--color-hover);
+}
+.palette td.active {
+  background-color: var(--color-hover);
+  font-weight: bold;
+}
+.palette img {
+  display: block;
+  width: 20px;
+  margin: 0 auto;
+}
+
+
 
 /* ---- high-scores table  (requirement 8) ---------------------------- */
 /* TODO: comfortable padding; left-aligned headings; an underline under
    the header row of .scores. */
+
+.scores {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+.scores th,
+.scores td {
+  padding: 8px 32px;
+}
+.scores th {
+  text-align: left;
+}
+.scores thead th {
+  border-bottom: 2px solid var(--block-line);
+}
